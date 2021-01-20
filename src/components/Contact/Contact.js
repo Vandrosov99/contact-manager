@@ -1,16 +1,21 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { ContactContext } from "../../Context/Provider";
 
 const Contact = props => {
   const { name, email, phone, id } = props.contact;
 
   const [isEnableInfo, setIsEnableInfo] = useState(false);
+  const [state, dispatch] = useContext(ContactContext);
 
   const toggleInfo = () => {
     setIsEnableInfo(!isEnableInfo);
   };
 
   const deleteContact = id => {
-    props.removeContact(id);
+    dispatch({
+      type: "DEL_CONTACT",
+      payload: id,
+    });
   };
 
   return (

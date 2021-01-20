@@ -1,48 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import Contact from "../Contact/Contact";
+import { ContactContext } from "../../Context/Provider";
 
 const ContactsList = () => {
-  const [contactList, setContactList] = useState({
-    list: [
-      {
-        id: 1,
-        name: "Mr.Vanya",
-        email: "mrvania@gmail.com",
-        phone: "555-555-22",
-      },
-      {
-        id: 2,
-        name: "Mr.Petya",
-        email: "mrpetya@gmail.com",
-        phone: "333-555-22",
-      },
-      {
-        id: 3,
-        name: "Mr.Oleg",
-        email: "mrOleg@gmail.com",
-        phone: "222-555-22",
-      },
-    ],
-  });
+  const [state, dispatch] = useContext(ContactContext);
+  console.log(state.contacts);
 
-  const removeContact = id => {
-    const updateList = contactList.list.filter(contact => {
-      return contact.id !== id;
-    });
-
-    setContactList({
-      ...contactList,
-      list: updateList,
-    });
-  };
   return (
     <React.Fragment>
-      {contactList.list.map(contact => (
-        <Contact
-          contact={contact}
-          key={contact.id}
-          removeContact={removeContact}
-        />
+      {state.contacts.map((contact, index) => (
+        <Contact contact={contact} key={index} />
       ))}
     </React.Fragment>
   );

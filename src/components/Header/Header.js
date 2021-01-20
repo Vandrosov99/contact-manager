@@ -3,6 +3,7 @@ import React from "react";
 const Header = props => {
   const { branding } = props;
 
+  console.log("header starts");
   return (
     <nav className='navbar navbar-expand-sm navbar-dark bg-danger mb-3 py-0'>
       <div className='container'>
