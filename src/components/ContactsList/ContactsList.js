@@ -8,6 +8,9 @@ const ContactsList = () => {
 
   return (
     <React.Fragment>
+      <h1 className='display-4 mb-2'>
+        <span className='text-danger'>Contact</span> List
+      </h1>
       {state.contacts.map((contact, index) => (
         <Contact contact={contact} key={index} />
       ))}

@@ -3,7 +3,7 @@ import { ContactContext } from "../../Context/Provider";
 import { v4 as uuidv4 } from "uuid";
 import classnames from "classnames";
 
-const AddContact = () => {
+const AddContact = props => {
   const [state, setState] = useState({
     name: "",
     email: "",
@@ -52,6 +52,8 @@ const AddContact = () => {
       phone: "",
     });
     setError({});
+
+    props.history.push("/");
   };
 
   console.log(errors);

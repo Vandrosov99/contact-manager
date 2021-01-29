@@ -19,7 +19,7 @@ const Contact = props => {
   };
 
   return (
-    <div className='card card-body'>
+    <div className='card card-body mb-3'>
       <h4>
         Name: {name}
         <i
